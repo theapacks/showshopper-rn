@@ -12,3 +12,8 @@ web-report/
 
 # macOS
 .DS_Store
+
+# custom scripts
+create-component.sh
+Template.js
+Template.styles.js
