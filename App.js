@@ -8,12 +8,17 @@ import * as Font from 'expo-font';
 import ShopNavigator from './navigation/ShopNavigator';
 
 import productsReducer from './store/reducers/products';
+import cartReducer from './store/reducers/cart';
 
 const rootReducer = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  cart: cartReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer, 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
 const fetchFonts = () => {
   return Font.loadAsync({
