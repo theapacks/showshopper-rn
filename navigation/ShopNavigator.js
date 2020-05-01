@@ -16,8 +16,11 @@ const screenOpts = {
     },
     headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
     headerTitleStyle :{
-      fontWeight: 'bold',
+      fontFamily: 'open-sans-bold',
     },
+    headerBackTitleStyle: {
+        fontFamily: 'open-sans',
+    }
   }
 
 const ShopNavigator = () => {
