@@ -3,7 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Platform } from 'react-native';
 
-import ProductsOverviewScreen from '../screens/ProductsOverviewScreen/ProductsOverviewScreen';
+import CartScreen from '../screens/CartScreen/CartScreen';
+import ProductsOverviewScreen, {productOverviewScreenOptions} from '../screens/ProductsOverviewScreen/ProductsOverviewScreen';
 import ProductDetailScreen, {productDetailsScreenOptions} from '../screens/ProductDetailsScreen/ProductDetailsScreen';
 import Colors from '../constants/Colors';
 
@@ -28,7 +29,7 @@ const ShopNavigator = () => {
         <NavigationContainer>
             <ProductsStack.Navigator screenOptions={screenOpts}>
                 <ProductsStack.Screen 
-                    options={{title: 'All Products'}} 
+                    options={productOverviewScreenOptions} 
                     name="ProductsOverview" 
                     component={ProductsOverviewScreen} 
                 />
@@ -37,6 +38,11 @@ const ShopNavigator = () => {
                     name="ProductDetail"
                     component={ProductDetailScreen}
                 />
+                <ProductsStack.Screen 
+                    options={{ title: "My Cart" }}
+                    name="Cart"
+                    component={CartScreen}
+                />                
             </ProductsStack.Navigator>
         </NavigationContainer>
     );
