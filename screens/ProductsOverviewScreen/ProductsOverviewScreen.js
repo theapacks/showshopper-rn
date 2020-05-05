@@ -36,6 +36,17 @@ const ProductsOverviewScreen = (props) => {
 export const productOverviewScreenOptions = () => {
     return {
         headerTitle: () => <Text style={styles.headerTitle}>All Products</Text>,
+        headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+              <Item
+                title="Menu"
+                iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+                onPress={() => {
+                    productOverviewProps.navigation.toggleDrawer();
+                }}
+              />
+            </HeaderButtons>
+        ),        
         headerRight: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
               <Item
