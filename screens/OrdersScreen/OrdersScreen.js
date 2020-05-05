@@ -1,12 +1,11 @@
 import React from 'react';
 import { Platform, Text, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
-import { Ionicons } from  '@expo/vector-icons';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../../components/HeaderButton/HeaderButton';
 
 import styles from './OrdersScreen.styles';
-import Colors from '../../constants/Colors';
+import OrderItem from '../../components/OrderItem/OrderItem';
 
 let ordersProps;
 
@@ -15,9 +14,15 @@ const OrdersScreen = props => {
     const orders = useSelector(state => state.orders.orders);
     return (
         <FlatList
-            keyExtractor={item => item.id}
-            data={orders}
-            renderItem={itemData => <Text>{itemData.item.totalAmount}</Text>}
+          data={orders}
+          keyExtractor={item => item.id}
+          renderItem={itemData => (
+              <OrderItem
+                amount={itemData.item.totalAmount}
+                date={itemData.item.readableDate}
+                items={itemData.item.items}
+              />
+          )}
         />
     );
 };
